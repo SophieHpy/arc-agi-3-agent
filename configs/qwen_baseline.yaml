@@ -1,0 +1,22 @@
+# Reference configuration for the OpenAI-compatible LLM backend (V0.5 target).
+# arc3 reads these values from environment variables; this file documents the
+# baseline values so experiments can record exactly what was used.
+name: qwen_baseline
+llm:
+  enabled: false              # ARC3_USE_LLM=1 to enable
+  base_url: http://127.0.0.1:8000/v1   # ARC3_LLM_BASE_URL
+  api_key: local              # ARC3_LLM_API_KEY
+  model: your-model           # ARC3_LLM_MODEL, e.g. a local Qwen served by vLLM
+  timeout_seconds: 60         # ARC3_LLM_TIMEOUT
+  temperature: 0.2
+  max_tokens: 512
+perception:
+  hash_border: 0              # ARC3_HASH_BORDER; ignore N edge cells when hashing (HUD counters)
+memory:
+  dead_threshold: 2           # consecutive no-change attempts before an action is "dead"
+  max_events: 20
+policy:
+  max_click_targets: 32
+  click_grid_step: 8
+agent:
+  max_actions: 2000
